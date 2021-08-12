@@ -9,7 +9,26 @@
     <link href="./client/styles/index.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    
+    <div id="root">
+      <form id="input-form">
+        <input name="text" placeholder="new word">
+        <input type="button" value="add">
+        <input type="button" value="remove">
+      </form>
+      <code id="warnings" class="warning"></code>
+      <br>
+      sort:
+      <select id="sort-type">
+        <option value="oldest">old -&gt; new</option>
+        <option value="newest">new -&gt; old</option>
+        <option value="a">a -&gt; z</option>
+        <option value="z">z -&gt; a</option>
+        <option value="shortest">short -&gt; long</option>
+        <option value="longest">long -&gt; short</option>
+      </select>
+      <div id="list-container"><ul></ul></div>
+    </div>
 
     <script type="module" src="./client/src/init/index.js"></script>
   </body>
