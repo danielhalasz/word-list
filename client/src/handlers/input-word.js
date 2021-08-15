@@ -43,11 +43,14 @@ export const inputWord = (event) => {
   warnings.innerText = '';
 
   if (action === 'add') {
-    if (text)
-      document.getElementById('warnings').innerHTML = `${text} is not a word`;
+    if (isWord(text) === false)
+      document.getElementById('warnings').className = 'warning';
+    document.getElementById('warnings').innerHTML = `"${text}" is not a word`;
     // ... write some code ...
   } else if (action === 'remove') {
-    document.getElementById('warnings').innerHTML = `${text} is not in the list`;
+    document.getElementById(
+      'warnings',
+    ).innerHTML = `${text} is not in the list`;
     // ... write some code ...
   }
 
