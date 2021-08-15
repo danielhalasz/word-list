@@ -43,15 +43,19 @@ export const inputWord = (event) => {
   warnings.innerText = '';
 
   if (action === 'add') {
-    if (isWord(text) === false)
-      document.getElementById('warnings').className = 'warning';
-    document.getElementById('warnings').innerHTML = `"${text}" is not a word`;
-    // ... write some code ...
-  } else if (action === 'remove') {
-    document.getElementById(
-      'warnings',
-    ).innerHTML = `${text} is not in the list`;
-    // ... write some code ...
+    if (isWord(text) === false) {
+      warnings.className = 'warning';
+      warnings.innerHTML = `"${text}" is not a word`;
+    } else {
+      data.words.push(text);
+    }
+  }
+  if (action === 'remove') {
+    if (data.words.includes(text) === false) {
+      warnings.innerHTML = `${text} is not in the list`;
+    } else {
+      data.words.splice(data.words.indexOf(text), 1);
+    }
   }
 
   /* -- render new words -- */
